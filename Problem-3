@@ -1,1 +1,32 @@
+def generate_series(a: int):
+    if a <= 0:
+        return "Error: Please enter a positive integer."
+    
+    if a % 2 == 0:
+        a -= 1
+    
+    series = [2 * i + 1 for i in range((a + 1) // 2)]
+    return series
+
+
+if __name__ == "__main__":
+    while True:
+        try:
+            print("\nEnter a positive integer to generate the series, or type 'exit' to quit.")
+            user_input = input("Enter a positive integer (a): ")
+
+            if user_input.lower() == "exit":
+                print("Exiting the program. Goodbye!")
+                break
+
+            a = int(user_input)
+            result = generate_series(a)
+            
+            if isinstance(result, list):
+                print("Output:", ", ".join(map(str, result)))
+            else:
+                print(result)
+
+        except ValueError:
+            print("Error: Please enter a valid positive integer or 'exit' to quit.")
 
